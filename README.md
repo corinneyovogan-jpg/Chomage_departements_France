@@ -1,6 +1,7 @@
 # Déterminants du chômage départemental en France
 
-Projet d'économétrie — M1 Économie Appliquée, parcours SciDE, Université de Lille
+Projet d'économétrie — M1 Économie Appliquée, parcours SciDE, Université de Lille  
+
 Auteure : Sylvia Corinne Yovogan
 
 ## Question de recherche
@@ -20,7 +21,8 @@ Les variables issues du recensement (diplômes, jeunes, industrie) ne sont pas t
 
 ## Méthode
 
-Une régression linéaire multiple (MCO) est estimée sur les départements français :
+Une régression linéaire multiple (MCO) est estimée sur les départements français :  
+
 taux_chomage = β₀ + β₁·diplômes + β₂·jeunes_18_24 + β₃·emploi_industriel + ε
 
 Deux versions du modèle sont présentées :
