@@ -9,6 +9,7 @@
 # install.packages(c("tidyverse", "readxl", "lmtest", "sandwich", "car"))
 library(tidyverse)
 library(readxl)
+library(ggplot2)
 library(lmtest) # pour le test de l'hétéroscédasticité
 library(sandwich) # pour les erreurs-types robustes
 library(car) # pour le test de multicolinéarité
