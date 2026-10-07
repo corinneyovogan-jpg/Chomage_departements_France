@@ -1,63 +1,86 @@
-install.packages("tidyverse")
-install.packages("readxl")
+#============================================================================
+#Projet: Déterminants du chômage départemental en France
+
+#Auteure: Sylvia Corinne YOVOGAN
+#============================================================================
+
+## Installation et chargement des packages
+# Installation (si besoin)
+# install.packages(c("tidyverse", "readxl", "lmtest", "sandwich", "car"))
 library(tidyverse)
 library(readxl)
-# Import du fichier
+library(lmtest) # pour le test de l'hétéroscédasticité
+library(sandwich) # pour les erreurs-types robustes
+library(car) # pour le test de multicolinéarité
+
+## Import et nettoyage des données
+
+# Diplômes du supérieur (2021)
 diplomes <- read_excel("data/indic_sex_rp.xlsx", sheet = "Data", skip = 4)
-
-# Filtrage des lignes
 diplomes <- filter(diplomes, sexe == "T", an == "2021")
-
-# Sélection des colonnes
 diplomes <- select(diplomes, codgeo, libgeo, p_diplsup15)
 
-head(diplomes)
-
-# Import du fichier chômage
-## Import du fichier chômage
-chomage <- read_excel(
-  "data/famille_TAUX-CHOMAGE_29092026/famille_TAUX-CHOMAGE_18092026.xlsx",
-  sheet = "valeurs_trimestrielles"
-)
-
-# On renomme tout de suite la 1ère colonne pour éviter les soucis d'accent
+# Chômage (2021, 4e trimestre)
+chomage <- read_excel("data/famille_TAUX-CHOMAGE_18092026.xlsx",sheet = "valeurs_trimestrielles")
 names(chomage)[1] <- "libelle"
-
-# On ne garde que les lignes qui concernent les départements (pas les régions)
 chomage <- filter(chomage, str_detect(libelle, "par département"))
-
-# On extrait le nom du département à partir du libellé
 chomage <- mutate(chomage, libgeo = str_remove(libelle, "Taux de chômage localisé par département - "))
-
-# On garde seulement le nom du département et le taux du 4e trimestre 2021
 chomage <- select(chomage, libgeo, `2021-T4`)
-
-# On renomme la dernière colonne
 names(chomage) <- c("libgeo", "taux_chomage_2021")
 
-head(chomage)
+# Part des jeunes 18-24 ans (2022)
+jeunes <- read_excel("data/part_18_24_ans.xlsx", sheet = "Data", skip = 4)
+jeunes <- filter(jeunes, an == "2022")
+jeunes <- select(jeunes, libgeo, part_pop1824)
 
-# On fusionne les deux tableaux à partir du nom du département (libgeo)
+# Part de l'emploi industriel (2022)
+industrie <- read_excel("data/part_emploi_industriel.xlsx", sheet = "Data", skip = 4)
+industrie <- filter(industrie, an == "2022")
+industrie <- select(industrie, libgeo, part_emplt_indus)
+
+## Fusion des 4 variables dans un seul tableau
 donnees <- inner_join(diplomes, chomage, by = "libgeo")
+donnees <- inner_join(donnees, jeunes, by = "libgeo")
+donnees <- inner_join(donnees, industrie, by = "libgeo")
 
-# Aperçu du résultat
-head(donnees)
-
-# Combien de départements ont bien été appariés ?
+# Vérification
 nrow(donnees)
+summary(donnees)
 
-# Statistiques descriptives rapides
-summary(donnees$p_diplsup15)
-summary(donnees$taux_chomage_2021)
-
-# Graphique : chômage en fonction du niveau de diplôme
-ggplot(donnees, aes(x = p_diplsup15, y = taux_chomage_2021)) +
-  geom_point() +
-  labs(
-    title = "Chômage et diplômes du supérieur par département (2021)",
+## Statistiques descriptives et graphique
+ggplot(donnees, aes(x = p_diplsup15, y = taux_chomage_2021)) + geom_point() +
+  labs(title = "Chômage et diplômes du supérieur par département (2021)",
     x = "Part de diplômés du supérieur (%)",
-    y = "Taux de chômage (%)"
-  )
+    y = "Taux de chômage (%)")
+
+## Regression linéaire multiple (modèle complet avec DOM)
+modele <- lm(taux_chomage_2021 ~ p_diplsup15 + part_pop1824 + part_emplt_indus, data = donnees)
+summary(modele)
+
+# Vérification de l'hétéroscédasticité
+bptest(modele)
+
+# Correction par erreurs-types robustes
+coeftest(modele, vcov = vcovHC(modele, type = "HC1"))
+
+# Identification des valeurs influentes
+plot(modele, which = 4)
+donnees[c(97, 100), ]
+
+## Modèle final : France métropolitaine sans les DOM
+donnees_metropole <- filter(donnees, !codgeo %in% c("971", "972", "973", "974", "976"))
+modele_final <- lm(taux_chomage_2021 ~ p_diplsup15 + part_pop1824 + part_emplt_indus, data = donnees_metropole)
+summary(modele_final)
+
+# Vérification de l'hétéroscédasticité sur le modèle final
+bptest(modele_final)
+
+# Correction par erreurs-types robustes
+coeftest(modele_final, vcov = vcovHC(modele_final, type = "HC1"))
+
+# Vérification de la multicolinéarité
+vif(modele_final) 
+
 
 
 
