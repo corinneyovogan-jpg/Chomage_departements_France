@@ -17,7 +17,10 @@ Quels facteurs expliquent les écarts de taux de chômage entre les département
 | Part des 18-24 ans dans la population | Observatoire des Territoires (INSEE) | 2022 |
 | Part de l'emploi industriel | Observatoire des Territoires (INSEE) | 2022 |
 
-Les variables issues du recensement (diplômes, jeunes, industrie) ne sont pas toutes disponibles pour la même année exacte. L'année la plus récente disponible a été retenue pour chacune : le taux de chômage et les diplômes datent de 2021, la part des jeunes et l'emploi industriel du dernier recensement disponible (2022).
+Les variables issues du recensement (diplômes, jeunes, industrie) ne sont pas toutes disponibles pour la même année exacte. L'année la plus récente disponible a été retenue pour chacune : le taux de chômage et les diplômes datent de 2021, la part des jeunes et l'emploi industriel du dernier recensement disponible (2022).  
+![Graphique chômage et diplômes](graphique_chomage_diplomes.png)
+
+*Lecture : chaque point représente un département. On observe une tendance décroissante entre la part de diplômés du supérieur et le taux de chômage, cohérente avec les résultats de la régression présentés ci-dessous.*
 
 ## Méthode
 
