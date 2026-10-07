@@ -21,7 +21,7 @@ Les variables issues du recensement (diplômes, jeunes, industrie) ne sont pas t
   
   ![Graphique chômage et diplômes](data/graphique_chomage_diplomes.png)
 
-*Lecture : chaque point représente un département. On observe une tendance décroissante entre la part de diplômés du supérieur et le taux de chômage, cohérente avec les résultats de la régression présentés ci-dessous.*
+**Lecture** : chaque point représente un département. On observe une tendance décroissante entre la part de diplômés du supérieur et le taux de chômage, cohérente avec les résultats de la régression présentés ci-dessous.*
 
 ## Méthode
 
