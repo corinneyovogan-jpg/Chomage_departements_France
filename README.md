@@ -44,7 +44,7 @@ Les départements d'outre-mer présents dans l'échantillon (Guadeloupe, Martini
 | Part de diplômés du supérieur | -0,094 | *** |
 | Part des 18-24 ans | +0,229 | * |
 | Part de l'emploi industriel | -0,151 | ** |
-
+*Significativité calculée avec des erreurs-types robustes (HC1). Seuils : trois étoiles = p < 0,001 ; deux étoiles = p < 0,01 ; une étoile = p < 0,05.*
 *R² = 0,18 — le modèle explique 18 % de la variation du taux de chômage entre départements métropolitains.*
 
 **Lecture des résultats** (toutes choses égales par ailleurs) :
