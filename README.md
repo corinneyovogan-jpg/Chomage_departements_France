@@ -80,5 +80,5 @@ Ces résultats sont cohérents avec la littérature économique : un niveau de d
 ## Reproduire l'analyse
 
 1. Ouvrir le fichier `chomage-departements-france.Rproj` dans RStudio
-2. Installer les packages si besoin
+2. Installer les packages si besoin : `install.packages(c("tidyverse", "readxl", "lmtest", "sandwich", "car"))`
 3. Exécuter `analyse.R`
