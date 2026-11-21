@@ -1,6 +1,6 @@
 # Déterminants du chômage départemental en France
 
-Projet d'économétrie — M1 Économie Appliquée, parcours SciDE, Université de Lille
+Projet personnel d'économétrie sous R — Etudiante en M1 Économie Appliquée, parcours SciDE, Université de Lille
 
 Auteure : Sylvia Corinne Yovogan
 
