@@ -1,6 +1,6 @@
 # Déterminants du chômage départemental en France
 
-Projet personnel d'économétrie sous R — Etudiante en M1 Économie Appliquée, parcours SciDE, Université de Lille
+Projet personnel d'économétrie sous R — Étudiante en M1 Économie Appliquée, parcours SciDE, Université de Lille
 
 Auteure : Sylvia Corinne Yovogan
 
@@ -35,7 +35,7 @@ Deux versions du modèle sont présentées :
 - **Modèle complet** (100 départements, DOM inclus)
 - **Modèle final** (96 départements, France métropolitaine uniquement)
 
-Les départements d'outre-mer présents dans l'échantillon (Guadeloupe, Martinique, Guyane, La Réunion) ont été exclus du modèle final. L'analyse des valeurs influentes (distance de Cook) avait notamment mis en évidence la Guadeloupe et La Réunion comme particulièrement atypiques puisque ces territoires présentent des structures économiques et des marchés du travail substantiellement différents de la France métropolitaine.
+Les départements d'outre-mer présents dans l'échantillon (Guadeloupe, Martinique, Guyane, La Réunion) ont été exclus du modèle final. L'analyse des valeurs influentes (distance de Cook) avait notamment mis en évidence la Guadeloupe et La Réunion comme particulièrement atypiques, puisque ces territoires présentent des structures économiques et des marchés du travail substantiellement différents de la France métropolitaine.
 
 ## Résultats (modèle final, France métropolitaine)
 
