@@ -19,7 +19,7 @@ Quels facteurs expliquent les écarts de taux de chômage entre les département
 
 Les variables issues du recensement (diplômes, jeunes, industrie) ne sont pas toutes disponibles pour la même année exacte. L'année la plus récente disponible a été retenue pour chacune : le taux de chômage et les diplômes datent de 2021, la part des jeunes et l'emploi industriel du dernier recensement disponible (2022).
 
-**Graphique exploratoire** : chômage et diplômes, 100 départements (outre-mer compris).
+**Graphique exploratoire** : chômage et diplômés du supérieur par département (échantillon de 100 départements, 2021).
 
 ![Graphique chômage et diplômes](data/graphique_chomage_diplomes.png)
 
