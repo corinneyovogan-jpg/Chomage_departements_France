@@ -19,7 +19,7 @@ Quels facteurs expliquent les écarts de taux de chômage entre les département
 
 Les variables issues du recensement (diplômes, jeunes, industrie) ne sont pas toutes disponibles pour la même année exacte. L'année la plus récente disponible a été retenue pour chacune : le taux de chômage et les diplômes datent de 2021, la part des jeunes et l'emploi industriel du dernier recensement disponible (2022).
 
-**Graphique exploratoire** : chômage et diplômés du supérieur par département (échantillon de 100 départements, 2021).
+**Graphique exploratoire** : Relation entre part de diplômés du supérieur et taux de chômage par département (2021).
 
 ![Graphique chômage et diplômes](data/graphique_chomage_diplomes.png)
 
@@ -35,7 +35,7 @@ Deux versions du modèle sont présentées :
 - **Modèle complet** (100 départements, DOM inclus)
 - **Modèle final** (96 départements, France métropolitaine uniquement)
 
-Les départements d'outre-mer présents dans l'échantillon (Guadeloupe, Martinique, Guyane, La Réunion) ont été exclus du modèle final. L'analyse des valeurs influentes (distance de Cook) avait notamment mis en évidence la Guadeloupe et La Réunion comme particulièrement atypiques. Par cohérence méthodologique, l'ensemble des DOM a été retiré, puisque ces territoires présentent des structures économiques et des marchés du travail substantiellement différents de la France métropolitaine.
+Les départements d'outre-mer présents dans l'échantillon (Guadeloupe, Martinique, Guyane, La Réunion) ont été exclus du modèle final. L'analyse des valeurs influentes (distance de Cook) avait notamment mis en évidence la Guadeloupe et La Réunion comme particulièrement atypiques. Par cohérence méthodologique, les départements d'outre-mer présents dans l'échantillon ont été retirés, puisque ces territoires présentent des structures économiques et des marchés du travail substantiellement différents de la France métropolitaine.
 
 ## Résultats (modèle final, France métropolitaine)
 
@@ -54,7 +54,7 @@ Les départements d'outre-mer présents dans l'échantillon (Guadeloupe, Martini
 - Une hausse d'1 point de la part des 18-24 ans est associée à une hausse de 0,23 point du taux de chômage.
 - Une hausse d'1 point de la part de l'emploi industriel est associée à une baisse de 0,15 point du taux de chômage.
 
-Ces résultats sont cohérents avec la littérature économique : un niveau de diplôme plus élevé facilite l'insertion professionnelle ; les jeunes actifs sont structurellement plus exposés au chômage ; et l'emploi industriel est associé à des bassins d'emploi plus stables dans certains territoires.
+Ces résultats semblent aller dans le sens de la littérature économique : un niveau de diplôme plus élevé tend à faciliter l'insertion professionnelle ; les jeunes actifs paraissent souvent plus exposés au chômage ; et l'emploi industriel peut stabiliser certains des bassins d'emploi.
 
 ## Validité du modèle
 
